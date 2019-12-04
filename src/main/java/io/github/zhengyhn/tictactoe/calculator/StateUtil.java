@@ -32,6 +32,10 @@ public class StateUtil {
         }
     }
 
+    public int getScore(ChessState[][] states) {
+        return calculators.get(0).calScore(states);
+    }
+
     public GameState getWinState(ChessState[][] states) {
         boolean isFull = true;
         for (int i = 0; i < states.length; ++i) {

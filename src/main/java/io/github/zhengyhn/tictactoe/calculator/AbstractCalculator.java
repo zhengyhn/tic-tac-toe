@@ -15,5 +15,14 @@ public abstract class AbstractCalculator {
         return sameState;
     }
 
+    public int calScore(ChessState[][] states) {
+        int score = this.calScoreInternal(states);
+        if (this.next != null) {
+            score += this.next.calScore(states);
+        }
+        return score;
+    }
+
+    protected abstract int calScoreInternal(ChessState[][] states);
     protected abstract ChessState findSame(ChessState[][] states);
 }
